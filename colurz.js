@@ -140,7 +140,9 @@ class CartesianCanvas {
     }
 
     Rand255() {
-        return (Math.floor(Math.random() * 10000) % 255) + 1
+        let array = new Uint32Array(1);
+        window.crypto.getRandomValues(array);
+        return (Math.floor(array[0] * 10000) % 255) + 1
     }
     RandomizeInputs(){
          $("#rMult")[0].value = this.Rand255();
