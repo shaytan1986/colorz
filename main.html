@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title>Drawing Canvas</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script type="text/javascript" src="./colurz.js"></script>
+    </head>
+    <body>
+        <canvas id="mainCanvas" width=800 height=800 style="margin-left:256px; border:1px solid black;">
+            sdf
+        </canvas>
+        <div style="margin-left:256px; margin-top:10px;">
+            <button id="test" onclick="MyCanvas.DrawColorGrid();">Test</button>
+            <button id="start">Start</button>
+            <button id="render">Render</button>
+            <button id="clear" onclick="MyCanvas.Clear();">Clear</button>
+            <button id="randomize" onclick="MyCanvas.RandomizeInputs()">Randomize</button>
+        </div>  
+        <div style="margin-left:256px; margin-top:10px;">
+            Red: <input id="rMult" type="text" value="1"/>
+            Green: <input id="gMult" type="text" value="3"/>
+            Blue: <input id="bMult" type="text" value="9"/>
+        </div>
+        <h1 style="margin-left:256px; margin-top:10px;">Debug Output</h1>
+        <div style="margin-left:256px; margin-top:10px;" id="output">
+            
+        </div>
+    </body>
+</html>
