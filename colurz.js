@@ -155,7 +155,7 @@ class CartesianCanvas {
         this.Clear();
         let granularity = 1024;
         let factor = Math.round(Math.sqrt(granularity));
-        
+        let useDebug = $("#debug")[0].checked;
         let multipliers = this.GetColorMultipliers();
         this.WriteDebugMessage(
             true, 
@@ -163,7 +163,7 @@ class CartesianCanvas {
             true, 
             "<span style='color:red;'>Red Multiplier</span>: ", multipliers.rMult,
             ", <span style='color:green;'>Green Multiplier</span>: ", multipliers.gMult,
-            ", <span style='color:blue;'>Blue Multiplier</span>: ", multipliers.bMult
+            ", <span style='color:blue;'>Blue Multiplier</span>: ", multipliers.bMult, "<br/>"
         );
         
         for (var i = 0; i < granularity ; i++) {
@@ -175,6 +175,9 @@ class CartesianCanvas {
             let colorPct = i / (granularity * 1.0);
             
             let color = this.GetColorByPercent(colorPct, multipliers.rMult, multipliers.gMult, multipliers.bMult);
+            if (useDebug) {
+                this.WriteDebugMessage(false, color, false, "Pct: ", colorPct, ", X: ", x, ", Y: ", y, ", Color: ", color);
+            }
             
             this.DrawPoint(pt, 10, color);
 
